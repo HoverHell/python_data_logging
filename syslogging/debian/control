@@ -1,0 +1,13 @@
+Source: python-data-logging-syslog
+Section: python
+Priority: extra
+Maintainer: HoverHell <hoverhell@gmail.com>
+Build-Depends:
+  debhelper (>= 7),
+
+Package: python-data-logging-syslog
+Architecture: all
+Depends: 
+  rsyslog | syslog-ng,
+Description: Common library for logging from python in machine-readable form:
+  global system configuration for using rsyslog or syslog-ng.

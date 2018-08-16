@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+# Prevent setuptools/distribute from accessing the internet.
+export http_proxy = http://127.0.0.1:9
+
+
+DH_ALWAYS_EXCLUDE = .svn:.git:.bzr:.hg:.gitignore
+
+
+%:
+	dh $@ --with python2

@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    configure)
+        echo "Applying sysctl config" >&2
+        sysctl -p /etc/sysctl.d/12-python-data-logging.conf || true
+        echo "Restarting rsyslog" >&2
+        service rsyslog restart || true
+        echo "Restarting syslog-ng" >&2
+        service syslog-ng restart || true
+        ;;
+esac
+
+
+#DEBHELPER#
