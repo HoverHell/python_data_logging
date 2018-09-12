@@ -1,3 +1,9 @@
+python-data-logging-syslog (1.1.1) unstable; urgency=medium
+
+  * Fix of the default source
+
+ -- hell <hell@hhell-yaw>  Wed, 12 Sep 2018 16:45:13 +0300
+
 python-data-logging-syslog (1.1.0) unstable; urgency=medium
 
   * syslog-ng: avoid redefining /dev/log at all; please use /dev/log-ext for
