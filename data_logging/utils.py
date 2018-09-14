@@ -17,6 +17,9 @@ __all__ = (
 )
 
 
+DEFAULT_ENCODING = 'utf-8'
+
+
 def simple_cached_wrap(func):
     """ A very simple memoizer that saves the first call result permanently """
 
@@ -43,7 +46,7 @@ def to_bytes(st, **kwargs):
         return st
     if not isinstance(st, text):
         return st
-    return st.encode(encoding='utf-8', **kwargs)
+    return st.encode(encoding=DEFAULT_ENCODING, **kwargs)
 
 
 def to_text(st, **kwargs):
@@ -51,7 +54,7 @@ def to_text(st, **kwargs):
         return st
     if not isinstance(st, bytes):
         return st
-    return st.decode(encoding='utf-8', **kwargs)
+    return st.decode(encoding=DEFAULT_ENCODING, **kwargs)
 
 
 if PY_3:

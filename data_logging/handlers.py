@@ -4,6 +4,7 @@ from __future__ import division, absolute_import, print_function, unicode_litera
 
 import os
 from logging import handlers
+from .utils import to_bytes
 
 
 __all__ = (
@@ -25,12 +26,13 @@ class TaggedSysLogHandlerBase(handlers.SysLogHandler):
         if address is None:
             address = '/dev/log-ext' if os.path.exists('/dev/log-ext') else '/dev/log'
             kwargs['address'] = address
-        self.syslog_tag = kwargs.pop('syslog_tag')
+        self.syslog_tag = to_bytes(kwargs.pop('syslog_tag'))
         super(TaggedSysLogHandlerBase, self).__init__(*args, **kwargs)
 
     def format(self, *args, **kwargs):  # pylint: disable=arguments-differ
         res = super(TaggedSysLogHandlerBase, self).format(*args, **kwargs)
-        return self.syslog_tag + " " + res
+        res = to_bytes(res)
+        return self.syslog_tag + b" " + res
 
 
 class TaggedSysLogHandler(TaggedSysLogHandlerBase):
