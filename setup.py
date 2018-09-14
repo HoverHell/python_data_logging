@@ -5,7 +5,7 @@ from __future__ import division, absolute_import, print_function, unicode_litera
 from setuptools import setup, find_packages
 
 
-VERSION = '1.0.0'
+VERSION = '1.1.0'
 
 
 setup_kwargs = dict(
