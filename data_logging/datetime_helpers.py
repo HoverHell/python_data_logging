@@ -24,8 +24,8 @@ def create_utc_shift_stamp(utc_offset):
     abs_utc_offset = long(abs(math.ceil(utc_offset)))
     hours, minutes_in_sec = divmod(abs_utc_offset, 3600)
     minutes = minutes_in_sec / 60
-    return "{sign}{hours:0>2}{minutes:0>2}".format(
-        sign=sign, hours=hours, minutes=minutes)
+    return "{sign}{hours:0>2}:{minutes:0>2}".format(
+        sign=sign, hours=int(hours), minutes=int(minutes))
 
 
 def get_utc_shift_stamp():
